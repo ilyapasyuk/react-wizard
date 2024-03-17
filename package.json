@@ -1,6 +1,6 @@
 {
   "name": "react-onboarding",
-  "version": "1.4.0-alpha.0",
+  "version": "1.4.0",
   "types": "dist/index.d.ts",
   "description": "Simple Wizard component for React",
   "type": "module",
@@ -8,7 +8,8 @@
   "module": "dist/wizard.es.min.js",
   "repository": "git@github.com:ilyapasyuk/react-wizard-tour.git",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "author": "pasyuk.com@gmail.com",
   "license": "MIT",
@@ -48,6 +49,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
+    "vite-plugin-lib-inject-css": "^2.0.0",
     "vite-plugin-static-copy": "^1.0.1"
   }
 }

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-import style from './style.module.css'
+import './style.css'
 import { WizardProps, WizardStep } from '../../index'
 
 type Coordinates = {
@@ -40,20 +40,20 @@ const Wizard = ({
   return (
     <div
       style={{ left: position.left, top: position.top }}
-      className={style.Wizard__Wrapper}
+      className="Wizard__Wrapper"
       data-wizard-onboarding
     >
-      <div className={style.Wizard__Container}>
-        <div className={style.Wizard__Info}>
-          <div className={style.Wizard__Count}>
+      <div className="Wizard__Container">
+        <div className="Wizard__Info">
+          <div className="Wizard__Count">
             {currentStepNumber + 1} of {rule.length}
           </div>
           {closeButtonElement ? (
-            <button onClick={() => setShow(false)} className={style.Wizard__CloseButton_empty}>
+            <button onClick={() => setShow(false)} className="Wizard__CloseButton_empty">
               {closeButtonElement}
             </button>
           ) : (
-            <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
+            <button onClick={() => setShow(false)} className="Wizard__CloseButton">
               {closeButtonTitle}
             </button>
           )}
@@ -61,15 +61,15 @@ const Wizard = ({
 
         <div
           dangerouslySetInnerHTML={{ __html: currentStepContent.title }}
-          className={style.Wizard__Title}
+          className="Wizard__Title"
         />
-        <div className={style.Wizard__Description}>{currentStepContent.description}</div>
+        <div className="Wizard__Description">{currentStepContent.description}</div>
 
-        <div className={style.Wizard__Footer}>
+        <div className="Wizard__Footer">
           {currentStepNumber !== 0 && (
             <button
               onClick={() => onStepButtonClick(currentStepNumber - 1)}
-              className={style.Wizard__Button}
+              className="Wizard__Button"
             >
               {prevButtonTitle}
             </button>
@@ -78,7 +78,7 @@ const Wizard = ({
           {currentStepNumber !== rule.length - 1 && (
             <button
               onClick={() => onStepButtonClick(currentStepNumber + 1)}
-              className={style.Wizard__Button}
+              className="Wizard__Button"
             >
               {nextButtonTitle}
             </button>
@@ -87,13 +87,13 @@ const Wizard = ({
       </div>
 
       <div
-        className={style.Wizard__Pin}
+        className="Wizard__Pin"
         style={{
           backgroundColor: pinColor,
         }}
       />
       <div
-        className={style.Wizard__Line}
+        className="Wizard__Line"
         style={{
           backgroundColor: lineColor,
         }}
