@@ -27,6 +27,10 @@ function App() {
         margin: '0 auto',
       }}
     >
+      <h1>React Onboarding</h1>
+      <code>
+        <pre>npm i react-onboarding</pre>
+      </code>
       <header>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
