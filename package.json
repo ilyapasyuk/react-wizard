@@ -1,8 +1,9 @@
 {
   "name": "react-onboarding",
-  "version": "1.2.19",
-  "types": "dist/index.d.ts",
+  "version": "1.3.0-alpha.0",
+  "types": "./index.d.ts",
   "description": "Simple Wizard component for React",
+  "type": "module",
   "main": "dist/wizard.esm.js",
   "module": "dist/wizard.esm.js",
   "repository": "git@github.com:ilyapasyuk/react-wizard-tour.git",
@@ -12,33 +13,25 @@
   "author": "pasyuk.com@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ilyapasyuk/react-onboarding/issues"
+    "url": "https://github.com/ilyapasyuk/react-wizard-tour/issues"
   },
   "private": false,
   "dependencies": {
-    "@types/node": "^14.0.23",
-    "@types/react": "^16.9.43",
-    "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "rollup": "^2.22.1",
-    "styled-components": "^5.1.1",
-    "typescript": "^3.9.7"
+    "@types/node": "^20.11.28",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "ci": "rollup -c"
   },
   "publishConfig": {
-    "registry":"https://registry.npmjs.org/"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "registry": "https://registry.npmjs.org/"
   },
   "browserslist": {
     "production": [
@@ -53,9 +46,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
-    "@rollup/plugin-typescript": "^5.0.2",
-    "prettier": "^2.0.5",
-    "rollup-plugin-copy": "^3.3.0"
+    "@vitejs/plugin-react": "^4.2.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
   }
 }
