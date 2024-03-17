@@ -11,7 +11,9 @@ Simple wizard component for React.js
 [Feature request](https://github.com/ilyapasyuk/react-onboarding/issues/new)
 
 ### Preview
-![](https://user-images.githubusercontent.com/5953765/50577446-28168500-0e39-11e9-9dfd-0a44a42d3268.gif)
+https://github.com/ilyapasyuk/react-wizard-tour/assets/5953765/e7cf2012-584e-4f8e-804f-b6147f823c96
+
+
 
 ### Installation
 
