@@ -1,19 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-import {
-  StyledCloseButton,
-  StyledDescription,
-  StyledFooter,
-  StyledInfo,
-  StyledLine,
-  StyledPin,
-  StyledStepButton,
-  StyledStepsCount,
-  StyledTitle,
-  StyledWizard,
-  StyledWrapper,
-} from './style'
+import style from './style.module.css'
 import { ReactOnboardingProps, Step } from '../../index'
 
 type Coordinates = {
@@ -46,38 +34,46 @@ const Wizard = ({
   }
 
   return (
-    <StyledWrapper style={{ left: position.left, top: position.top }}>
-      <StyledWizard>
-        <StyledCloseButton onClick={() => setShow(false)}>X</StyledCloseButton>
-        <StyledInfo>
-          <StyledStepsCount>
+    <div style={{ left: position.left, top: position.top }} className={style.Wizard__Wrapper}>
+      <div className={style.Wizard__Container}>
+        <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
+          X
+        </button>
+        <div className={style.Wizard__Info}>
+          <div className={style.Wizard__Count}>
             {currentStepNumber + 1} of {rule.length}
-          </StyledStepsCount>
-        </StyledInfo>
+          </div>
+        </div>
 
-        <StyledTitle dangerouslySetInnerHTML={{ __html: currentStepContent.title }} />
-        <StyledDescription>{currentStepContent.description}</StyledDescription>
+        <div
+          dangerouslySetInnerHTML={{ __html: currentStepContent.title }}
+          className={style.Wizard__Title}
+        />
+        <div className={style.Wizard__Description}>{currentStepContent.description}</div>
 
-        <StyledFooter>
+        <div className={style.Wizard__Footer}>
           {currentStepNumber !== 0 && (
-            <StyledStepButton onClick={() => onStepButtonClick(currentStepNumber - 1)}>
+            <button
+              onClick={() => onStepButtonClick(currentStepNumber - 1)}
+              className={style.Wizard__Button}
+            >
               {prevButtonTitle}
-            </StyledStepButton>
+            </button>
           )}
 
           {currentStepNumber !== rule.length - 1 && (
-            <StyledStepButton
+            <button
               onClick={() => onStepButtonClick(currentStepNumber + 1)}
-              // disabled={currentStepNumber + 1 === rule.length}
+              className={style.Wizard__Button}
             >
               {nextButtonTitle}
-            </StyledStepButton>
+            </button>
           )}
-        </StyledFooter>
-      </StyledWizard>
-      <StyledPin />
-      <StyledLine />
-    </StyledWrapper>
+        </div>
+      </div>
+      <div className={style.Wizard__Pin} />
+      <div className={style.Wizard__Line} />
+    </div>
   )
 }
 

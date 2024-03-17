@@ -1,12 +1,10 @@
-import styled from 'styled-components'
-
-const StyledWrapper = styled.div`
+.Wizard__Wrapper {
     position: absolute;
     z-index: 9999;
     transition: all 100ms ease;
-`
+}
 
-const StyledWizard = styled.div`
+.Wizard__Container {
     width: 226px;
     min-height: 100px;
     background-color: white;
@@ -16,9 +14,9 @@ const StyledWizard = styled.div`
     transform: translate(22px, -50px);
     z-index: 2;
     position: relative;
-`
+}
 
-const StyledCloseButton = styled.button`
+.Wizard__CloseButton {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -28,62 +26,42 @@ const StyledCloseButton = styled.button`
     border: 0;
     outline: none;
     background: transparent;
-`
+}
 
-const StyledInfo = styled.div`
+.Wizard__Info {
     display: flex;
     width: 87%;
     margin-bottom: 10px;
     align-items: center;
-`
+}
 
-const StyledStepsCount = styled.div`
+.Wizard__Count {
     width: 35%;
     font-size: 12px;
-`
+}
 
-const StyledTitle = styled.div`
+.Wizard__Title {
     margin-bottom: 8px;
     letter-spacing: normal;
     color: #000000;
     font-size: 14px;
     font-weight: 600;
     font-style: normal;
-`
+}
 
-const StyledDescription = styled.div`
+.Wizard__Description {
     margin-bottom: 15px;
     color: #4d4d4d;
     font-size: 12px;
     line-height: 1.25px;
-`
+}
 
-const StyledFooter = styled.div`
+.Wizard__Footer {
     padding: 10px 0 0;
     text-align: right;
-`
-const StyledPin = styled.div`
-    position: absolute;
-    z-index: 2;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #1787fc;
-    box-shadow: 0 0 0 2px white;
-    top: -7px;
-    left: -7px;
-`
+}
 
-const StyledLine = styled.div`
-    height: 1px;
-    width: 25px;
-    top: 1px;
-    position: absolute;
-    z-index: 1;
-    background: #1787fc;
-`
-
-const StyledStepButton = styled.div`
+.Wizard__Button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -102,18 +80,25 @@ const StyledStepButton = styled.div`
     color: #fff;
     font-size: 14px;
     margin-left: 10px;
-`
+}
 
-export {
-    StyledCloseButton,
-    StyledDescription,
-    StyledFooter,
-    StyledInfo,
-    StyledLine,
-    StyledPin,
-    StyledStepButton,
-    StyledStepsCount,
-    StyledTitle,
-    StyledWizard,
-    StyledWrapper,
+.Wizard__Pin {
+    position: absolute;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #1787fc;
+    box-shadow: 0 0 0 2px white;
+    top: -7px;
+    left: -7px;
+}
+
+.Wizard__Line {
+    height: 1px;
+    width: 25px;
+    top: 1px;
+    position: absolute;
+    z-index: 1;
+    background: #1787fc;
 }

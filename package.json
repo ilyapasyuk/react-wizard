@@ -1,6 +1,6 @@
 {
   "name": "react-onboarding",
-  "version": "1.3.2",
+  "version": "1.4.0-alpha.0",
   "types": "dist/index.d.ts",
   "description": "Simple Wizard component for React",
   "type": "module",
@@ -17,9 +17,9 @@
   },
   "private": false,
   "dependencies": {
+    "styled-components": "^6.1.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^6.1.8"
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "start": "vite",

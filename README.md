@@ -56,12 +56,10 @@ const rule = [
     },
 ]
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-        <Wizard rule={rule} nextButtonTitle="Next click" prevButtonTitle="Prev click"  />
+        <Wizard rule={rule} />
     );
-  }
 }
 
 export default App;
