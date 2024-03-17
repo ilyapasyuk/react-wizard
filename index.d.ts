@@ -6,7 +6,7 @@
 
 import * as React from 'react'
 
-interface WizardStep {
+export interface WizardStep {
   elementId: string
   title: string
   description?: string
@@ -17,6 +17,10 @@ export interface WizardProps {
   rule: Step[]
   prevButtonTitle?: string
   nextButtonTitle?: string
+  closeButtonTitle?: string
+  closeButtonElement?: React.ReactNode
+  lineColor?: string
+  pinColor?: string
 }
 
 export default class Wizard extends React.Component<WizardProps> {}

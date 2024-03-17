@@ -21,7 +21,12 @@ const rule = [
 
 function App() {
   return (
-    <div>
+    <div
+      style={{
+        width: '600px',
+        margin: '0 auto',
+      }}
+    >
       <header>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
@@ -52,7 +57,7 @@ function App() {
           alt=""
         />
       </header>
-      <Wizard rule={rule} />
+      <Wizard rule={rule} pinColor="black" lineColor="black" />
     </div>
   )
 }

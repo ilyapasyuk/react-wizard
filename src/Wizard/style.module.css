@@ -92,6 +92,14 @@
     box-shadow 0.2s;
 }
 
+.Wizard__CloseButton_empty {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
 .Wizard__Info {
   display: flex;
   gap: 6px;
@@ -153,7 +161,6 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #1787fc;
   box-shadow: 0 0 0 2px white;
   top: -7px;
   left: -7px;
@@ -165,5 +172,4 @@
   top: 1px;
   position: absolute;
   z-index: 1;
-  background: #1787fc;
 }

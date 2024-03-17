@@ -14,6 +14,10 @@ const Wizard = ({
   rule,
   prevButtonTitle = 'Prev',
   nextButtonTitle = 'Next',
+  closeButtonTitle = 'Close',
+  closeButtonElement,
+  pinColor = '#1787fc',
+  lineColor = '#1787fc',
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
   const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
@@ -44,9 +48,15 @@ const Wizard = ({
           <div className={style.Wizard__Count}>
             {currentStepNumber + 1} of {rule.length}
           </div>
-          <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
-            Close
-          </button>
+          {closeButtonElement ? (
+            <button onClick={() => setShow(false)} className={style.Wizard__CloseButton_empty}>
+              {closeButtonElement}
+            </button>
+          ) : (
+            <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
+              {closeButtonTitle}
+            </button>
+          )}
         </div>
 
         <div
@@ -76,8 +86,18 @@ const Wizard = ({
         </div>
       </div>
 
-      <div className={style.Wizard__Pin} />
-      <div className={style.Wizard__Line} />
+      <div
+        className={style.Wizard__Pin}
+        style={{
+          backgroundColor: pinColor,
+        }}
+      />
+      <div
+        className={style.Wizard__Line}
+        style={{
+          backgroundColor: lineColor,
+        }}
+      />
     </div>
   )
 }
