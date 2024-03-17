@@ -4,8 +4,14 @@
   "types": "./index.d.ts",
   "description": "Simple Wizard component for React",
   "type": "module",
-  "main": "dist/wizard.es.min.js",
-  "module": "dist/wizard.es.min.js",
+  "main": "./dist/wizard.umd.min.js",
+  "module": "./dist/wizard.es.min.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wizard.es.min.js",
+      "require": "./dist/wizard.umd.min.js"
+    }
+  },
   "repository": "git@github.com:ilyapasyuk/react-wizard-tour.git",
   "files": [
     "dist"
