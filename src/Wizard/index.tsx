@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 import style from './style.module.css'
-import { ReactOnboardingProps, Step } from '../../index'
+import { WizardProps, WizardStep } from '../../index'
 
 type Coordinates = {
   top: number
@@ -14,7 +14,7 @@ const Wizard = ({
   rule,
   prevButtonTitle = 'Prev',
   nextButtonTitle = 'Next',
-}: ReactOnboardingProps) => {
+}: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
   const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
   const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
@@ -34,15 +34,19 @@ const Wizard = ({
   }
 
   return (
-    <div style={{ left: position.left, top: position.top }} className={style.Wizard__Wrapper}>
+    <div
+      style={{ left: position.left, top: position.top }}
+      className={style.Wizard__Wrapper}
+      data-wizard-onboarding
+    >
       <div className={style.Wizard__Container}>
-        <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
-          X
-        </button>
         <div className={style.Wizard__Info}>
           <div className={style.Wizard__Count}>
             {currentStepNumber + 1} of {rule.length}
           </div>
+          <button onClick={() => setShow(false)} className={style.Wizard__CloseButton}>
+            Close
+          </button>
         </div>
 
         <div
@@ -71,13 +75,14 @@ const Wizard = ({
           )}
         </div>
       </div>
+
       <div className={style.Wizard__Pin} />
       <div className={style.Wizard__Line} />
     </div>
   )
 }
 
-function getStep(stepNumber: number, rules: Step[]): Step {
+function getStep(stepNumber: number, rules: WizardStep[]): WizardStep {
   return rules[stepNumber]
 }
 
