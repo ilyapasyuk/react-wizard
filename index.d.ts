@@ -6,17 +6,21 @@
 
 import * as React from 'react'
 
-type Step = {
-    elementId: string
-    title: string
-    description?: string
+export interface WizardStep {
+  elementId: string
+  title: string
+  description?: string
 }
 
-export interface ReactOnboardingProps {
-    isShow?: boolean
-    rule: Step[]
-    prevButtonTitle?: string
-    nextButtonTitle?: string
+export interface WizardProps {
+  isShow?: boolean
+  rule: Step[]
+  prevButtonTitle?: string
+  nextButtonTitle?: string
+  closeButtonTitle?: string
+  closeButtonElement?: React.ReactNode
+  lineColor?: string
+  pinColor?: string
 }
 
-export default class Wizard extends React.Component<ReactOnboardingProps> {}
+export default class Wizard extends React.Component<WizardProps> {}

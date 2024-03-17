@@ -1,0 +1,175 @@
+[data-wizard-onboarding] {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
+
+  --width: 226px;
+
+  --gray1: hsl(0, 0%, 99%);
+  --gray2: hsl(0, 0%, 97.3%);
+  --gray3: hsl(0, 0%, 95.1%);
+  --gray4: hsl(0, 0%, 93%);
+  --gray5: hsl(0, 0%, 90.9%);
+  --gray6: hsl(0, 0%, 88.7%);
+  --gray7: hsl(0, 0%, 85.8%);
+  --gray8: hsl(0, 0%, 78%);
+  --gray9: hsl(0, 0%, 56.1%);
+  --gray10: hsl(0, 0%, 52.3%);
+  --gray11: hsl(0, 0%, 43.5%);
+  --gray12: hsl(0, 0%, 9%);
+  --border-radius: 8px;
+  --normal-bg: #fff;
+  --normal-border: var(--gray4);
+  --normal-text: var(--gray12);
+
+  --success-bg: hsl(143, 85%, 96%);
+  --success-border: hsl(145, 92%, 91%);
+  --success-text: hsl(140, 100%, 27%);
+
+  --info-bg: hsl(208, 100%, 97%);
+  --info-border: hsl(221, 91%, 91%);
+  --info-text: hsl(210, 92%, 45%);
+
+  --warning-bg: hsl(49, 100%, 97%);
+  --warning-border: hsl(49, 91%, 91%);
+  --warning-text: hsl(31, 92%, 45%);
+
+  --error-bg: hsl(359, 100%, 97%);
+  --error-border: hsl(359, 100%, 94%);
+  --error-text: hsl(360, 100%, 45%);
+}
+
+.Wizard__Wrapper {
+  position: absolute;
+  z-index: 999999999;
+  transition: all 100ms ease;
+}
+
+.Wizard__Container {
+  min-height: 100px;
+  padding: 16px;
+  background: var(--normal-bg);
+  border: 1px solid var(--normal-border);
+  color: var(--normal-text);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px #0000001a;
+  width: var(--width);
+  font-size: 13px;
+  background-color: white;
+  transform: translate(22px, -50px);
+  z-index: 2;
+  position: relative;
+}
+
+.Wizard__CloseButton {
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 24px;
+  font-size: 12px;
+  color: var(--normal-bg);
+  background: var(--normal-text);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition:
+    opacity 0.4s,
+    box-shadow 0.2s;
+}
+
+.Wizard__CloseButton_empty {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.Wizard__Info {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.Wizard__Count {
+  flex: 1;
+  font-size: 12px;
+}
+
+.Wizard__Title {
+  margin-bottom: 8px;
+  letter-spacing: normal;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.Wizard__Description {
+  margin-bottom: 15px;
+  color: #4d4d4d;
+  font-size: 12px;
+}
+
+.Wizard__Footer {
+  text-align: right;
+  display: flex;
+  gap: 10px;
+}
+
+.Wizard__Button {
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 32px;
+  color: var(--normal-bg);
+  background: var(--normal-text);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-shrink: 0;
+  transition:
+    opacity 0.4s,
+    box-shadow 0.2s;
+  font-size: 14px;
+}
+
+.Wizard__Pin {
+  position: absolute;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px white;
+  top: -7px;
+  left: -7px;
+}
+
+.Wizard__Line {
+  height: 1px;
+  width: 25px;
+  top: 1px;
+  position: absolute;
+  z-index: 1;
+}

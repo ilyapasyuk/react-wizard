@@ -1,20 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-import {
-  StyledCloseButton,
-  StyledDescription,
-  StyledFooter,
-  StyledInfo,
-  StyledLine,
-  StyledPin,
-  StyledStepButton,
-  StyledStepsCount,
-  StyledTitle,
-  StyledWizard,
-  StyledWrapper,
-} from './style'
-import { ReactOnboardingProps, Step } from '../../index'
+import './style.css'
+import { WizardProps, WizardStep } from '../../index'
 
 type Coordinates = {
   top: number
@@ -26,7 +14,11 @@ const Wizard = ({
   rule,
   prevButtonTitle = 'Prev',
   nextButtonTitle = 'Next',
-}: ReactOnboardingProps) => {
+  closeButtonTitle = 'Close',
+  closeButtonElement,
+  pinColor = '#1787fc',
+  lineColor = '#1787fc',
+}: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
   const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
   const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
@@ -46,42 +38,71 @@ const Wizard = ({
   }
 
   return (
-    <StyledWrapper style={{ left: position.left, top: position.top }}>
-      <StyledWizard>
-        <StyledCloseButton onClick={() => setShow(false)}>X</StyledCloseButton>
-        <StyledInfo>
-          <StyledStepsCount>
+    <div
+      style={{ left: position.left, top: position.top }}
+      className="Wizard__Wrapper"
+      data-wizard-onboarding
+    >
+      <div className="Wizard__Container">
+        <div className="Wizard__Info">
+          <div className="Wizard__Count">
             {currentStepNumber + 1} of {rule.length}
-          </StyledStepsCount>
-        </StyledInfo>
+          </div>
+          {closeButtonElement ? (
+            <button onClick={() => setShow(false)} className="Wizard__CloseButton_empty">
+              {closeButtonElement}
+            </button>
+          ) : (
+            <button onClick={() => setShow(false)} className="Wizard__CloseButton">
+              {closeButtonTitle}
+            </button>
+          )}
+        </div>
 
-        <StyledTitle dangerouslySetInnerHTML={{ __html: currentStepContent.title }} />
-        <StyledDescription>{currentStepContent.description}</StyledDescription>
+        <div
+          dangerouslySetInnerHTML={{ __html: currentStepContent.title }}
+          className="Wizard__Title"
+        />
+        <div className="Wizard__Description">{currentStepContent.description}</div>
 
-        <StyledFooter>
+        <div className="Wizard__Footer">
           {currentStepNumber !== 0 && (
-            <StyledStepButton onClick={() => onStepButtonClick(currentStepNumber - 1)}>
+            <button
+              onClick={() => onStepButtonClick(currentStepNumber - 1)}
+              className="Wizard__Button"
+            >
               {prevButtonTitle}
-            </StyledStepButton>
+            </button>
           )}
 
           {currentStepNumber !== rule.length - 1 && (
-            <StyledStepButton
+            <button
               onClick={() => onStepButtonClick(currentStepNumber + 1)}
-              // disabled={currentStepNumber + 1 === rule.length}
+              className="Wizard__Button"
             >
               {nextButtonTitle}
-            </StyledStepButton>
+            </button>
           )}
-        </StyledFooter>
-      </StyledWizard>
-      <StyledPin />
-      <StyledLine />
-    </StyledWrapper>
+        </div>
+      </div>
+
+      <div
+        className="Wizard__Pin"
+        style={{
+          backgroundColor: pinColor,
+        }}
+      />
+      <div
+        className="Wizard__Line"
+        style={{
+          backgroundColor: lineColor,
+        }}
+      />
+    </div>
   )
 }
 
-function getStep(stepNumber: number, rules: Step[]): Step {
+function getStep(stepNumber: number, rules: WizardStep[]): WizardStep {
   return rules[stepNumber]
 }
 

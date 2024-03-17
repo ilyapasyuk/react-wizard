@@ -2,11 +2,13 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import * as path from 'node:path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
 export default defineConfig({
   base: '',
   plugins: [
     react(),
+    libInjectCss(),
     viteStaticCopy({
       targets: [
         {

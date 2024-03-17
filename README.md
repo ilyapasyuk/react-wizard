@@ -30,38 +30,40 @@ Then just renders it
 
 ### Props
 
-|      _Prop_     |       _Description_       | _Default value_ |
-| --------------- |   :-------------------:   | :-------------: |
-| rule            |   array rules for wizard  |      none       |
-| isShow          |    Sets view mode         |      true       |
-| prevButtonTitle | title for previous button |      Prev       |
-| nextButtonTitle | title for next button     |      Next       |
+| _Property_           |       _Description_       | _Default value_ |
+|----------------------|:-------------------------:|:---------------:|
+| `rule`               |  array rules for wizard   |      none       |
+| `isShow`             |      Sets view mode       |      true       |
+| `prevButtonTitle`    | title for previous button |      Prev       |
+| `nextButtonTitle`    |   title for next button   |      Next       |
+| `closeButtonTitle`   |   Text on Close button    |      Close      |
+| `closeButtonElement` |                           |    ReactNode    |
+| `pinColor`           |                           |     string      |
+| `lineColor`          |                           |     string      |
 
 ### Example
 
-``` jsx
+``` tsx
 import React, { Component } from "react";
 import Wizard from "react-onboarding";
 
 const rule = [
     {
-        elementId: 'elementIdOne',
+        elementId: 'elementId1',
         title: 'Title 1',
         description: 'description 1',
     },
     {
-        elementId: 'elementIdTwo',
+        elementId: 'elementId2',
         title: 'Title 2',
         description: 'description 2',
     },
 ]
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-        <Wizard rule={rule} nextButtonTitle="Next click" prevButtonTitle="Prev click"  />
+        <Wizard rule={rule} />
     );
-  }
 }
 
 export default App;
