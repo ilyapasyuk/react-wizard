@@ -1,10 +1,21 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import * as path from 'node:path'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
   base: '',
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, './index.d.ts'),
+          dest: './',
+        },
+      ],
+    }),
+  ],
   server: {
     open: true,
     port: 3000,

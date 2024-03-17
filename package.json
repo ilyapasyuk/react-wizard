@@ -17,9 +17,6 @@
   },
   "private": false,
   "dependencies": {
-    "@types/node": "^20.11.28",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.8"
@@ -27,8 +24,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "ci": "rollup -c"
+    "preview": "vite preview"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -46,9 +42,13 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^20.11.28",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "prettier": "^3.2.5",
     "typescript": "^5.4.2",
-    "vite": "^5.1.6"
+    "vite": "^5.1.6",
+    "vite-plugin-static-copy": "^1.0.1"
   }
 }
