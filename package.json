@@ -1,17 +1,11 @@
 {
   "name": "react-onboarding",
-  "version": "1.3.0-alpha.2",
-  "types": "./index.d.ts",
+  "version": "1.3.0-alpha.3",
+  "types": "dist/index.d.ts",
   "description": "Simple Wizard component for React",
   "type": "module",
-  "main": "./dist/wizard.umd.min.js",
-  "module": "./dist/wizard.es.min.js",
-  "exports": {
-    ".": {
-      "import": "./dist/wizard.es.min.js",
-      "require": "./dist/wizard.umd.min.js"
-    }
-  },
+  "main": "dist/wizard.umd.min.js",
+  "module": "dist/wizard.es.min.js",
   "repository": "git@github.com:ilyapasyuk/react-wizard-tour.git",
   "files": [
     "dist"
