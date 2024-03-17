@@ -1,104 +1,101 @@
+'use client'
 import React, { useState, useEffect } from 'react'
-import { Step, ReactOnboardingProps } from '../index'
 
 import {
-    StyledCloseButton,
-    StyledDescription,
-    StyledFooter,
-    StyledInfo,
-    StyledLine,
-    StyledPin,
-    StyledStepButton,
-    StyledStepsCount,
-    StyledTitle,
-    StyledWizard,
-    StyledWrapper,
+  StyledCloseButton,
+  StyledDescription,
+  StyledFooter,
+  StyledInfo,
+  StyledLine,
+  StyledPin,
+  StyledStepButton,
+  StyledStepsCount,
+  StyledTitle,
+  StyledWizard,
+  StyledWrapper,
 } from './style'
+import { ReactOnboardingProps, Step } from '../../index'
 
 type Coordinates = {
-    top: number
-    left: number
+  top: number
+  left: number
 }
 
 const Wizard = ({
-    isShow = true,
-    rule,
-    prevButtonTitle = 'Prev',
-    nextButtonTitle = 'Next',
+  isShow = true,
+  rule,
+  prevButtonTitle = 'Prev',
+  nextButtonTitle = 'Next',
 }: ReactOnboardingProps) => {
-    const [isShowState, setShow] = useState<boolean>(isShow)
-    const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
-    const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
-    const currentStepContent = getStep(currentStepNumber, rule)
+  const [isShowState, setShow] = useState<boolean>(isShow)
+  const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
+  const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
+  const currentStepContent = getStep(currentStepNumber, rule)
 
-    useEffect(() => {
-        setPosition(getCoords(getStep(currentStepNumber, rule).elementId))
-    }, [rule])
+  useEffect(() => {
+    setPosition(getCoords(getStep(currentStepNumber, rule).elementId))
+  }, [rule])
 
-    const onStepButtonClick = (stepNumber: number): void => {
-        setCurrentStepNumber(stepNumber)
-        setPosition(getCoords(getStep(stepNumber, rule).elementId))
-    }
+  const onStepButtonClick = (stepNumber: number): void => {
+    setCurrentStepNumber(stepNumber)
+    setPosition(getCoords(getStep(stepNumber, rule).elementId))
+  }
 
-    if (!isShowState || !position) {
-        return null
-    }
+  if (!isShowState || !position) {
+    return null
+  }
 
-    return (
-        <StyledWrapper style={{ left: position.left, top: position.top }}>
-            <StyledWizard>
-                <StyledCloseButton onClick={() => setShow(false)}>X</StyledCloseButton>
-                <StyledInfo>
-                    <StyledStepsCount>
-                        {currentStepNumber + 1} of {rule.length}
-                    </StyledStepsCount>
-                </StyledInfo>
+  return (
+    <StyledWrapper style={{ left: position.left, top: position.top }}>
+      <StyledWizard>
+        <StyledCloseButton onClick={() => setShow(false)}>X</StyledCloseButton>
+        <StyledInfo>
+          <StyledStepsCount>
+            {currentStepNumber + 1} of {rule.length}
+          </StyledStepsCount>
+        </StyledInfo>
 
-                <StyledTitle
-                    dangerouslySetInnerHTML={{ __html: currentStepContent.title }}
-                />
-                <StyledDescription>{currentStepContent.description}</StyledDescription>
+        <StyledTitle dangerouslySetInnerHTML={{ __html: currentStepContent.title }} />
+        <StyledDescription>{currentStepContent.description}</StyledDescription>
 
-                <StyledFooter>
-                    {currentStepNumber !== 0 && (
-                        <StyledStepButton
-                            onClick={() => onStepButtonClick(currentStepNumber - 1)}
-                        >
-                            {prevButtonTitle}
-                        </StyledStepButton>
-                    )}
+        <StyledFooter>
+          {currentStepNumber !== 0 && (
+            <StyledStepButton onClick={() => onStepButtonClick(currentStepNumber - 1)}>
+              {prevButtonTitle}
+            </StyledStepButton>
+          )}
 
-                    {currentStepNumber !== rule.length - 1 && (
-                        <StyledStepButton
-                            onClick={() => onStepButtonClick(currentStepNumber + 1)}
-                            // disabled={currentStepNumber + 1 === rule.length}
-                        >
-                            {nextButtonTitle}
-                        </StyledStepButton>
-                    )}
-                </StyledFooter>
-            </StyledWizard>
-            <StyledPin />
-            <StyledLine />
-        </StyledWrapper>
-    )
+          {currentStepNumber !== rule.length - 1 && (
+            <StyledStepButton
+              onClick={() => onStepButtonClick(currentStepNumber + 1)}
+              // disabled={currentStepNumber + 1 === rule.length}
+            >
+              {nextButtonTitle}
+            </StyledStepButton>
+          )}
+        </StyledFooter>
+      </StyledWizard>
+      <StyledPin />
+      <StyledLine />
+    </StyledWrapper>
+  )
 }
 
 function getStep(stepNumber: number, rules: Step[]): Step {
-    return rules[stepNumber]
+  return rules[stepNumber]
 }
 
 function getCoords(elementId: string): Coordinates {
-    const element = document.getElementById(elementId)
-    const coordinates = element?.getBoundingClientRect()
+  const element = document.getElementById(elementId)
+  const coordinates = element?.getBoundingClientRect()
 
-    const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2
-    const left = (coordinates?.left || 0) + (coordinates?.width || 0)
+  const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2
+  const left = (coordinates?.left || 0) + (coordinates?.width || 0)
 
-    return {
-        top,
-        left,
-    }
+  return {
+    top,
+    left,
+  }
 }
 
 export default Wizard
