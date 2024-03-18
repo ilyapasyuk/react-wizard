@@ -30,7 +30,7 @@ const Wizard = ({
     setCoordinates(getCoords(getStep(stepNumber, rule).elementId))
   }
 
-  if (!isShowState || !position) {
+  if (!isShowState || !coordinates) {
     return null
   }
 
