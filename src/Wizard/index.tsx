@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 import './style.css'
-import { Coordinates, WIZARD_POSITION, WizardProps, WizardStep } from './types'
+import { Coordinates, WizardProps, WizardStep } from './types'
 
 const Wizard = ({
   isShow = true,
@@ -13,7 +13,6 @@ const Wizard = ({
   closeButtonElement,
   pinColor = '#1787fc',
   lineColor = '#1787fc',
-  position = WIZARD_POSITION.RIGHT,
   isScrollToElement = false,
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)

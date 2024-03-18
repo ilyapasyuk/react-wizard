@@ -33,18 +33,17 @@ Then just render it
 
 ### Props
 
-| _Property_           |       _Description_       | _type_                 |     _Default value_     |
-|----------------------|:-------------------------:|------------------------|:-----------------------:|
-| `rule`               |  array rules for wizard   |                        |                         |
-| `isShow`             |      Sets view mode       | `boolean`              |         `true`          |
-| `prevButtonTitle`    | title for previous button | `string`               |         `Prev`          |
-| `nextButtonTitle`    |   title for next button   | `string`               |         `Next`          |
-| `closeButtonTitle`   |   Text on Close button    | `string`               |         `Close`         |
-| `closeButtonElement` |                           | `ReactNode`            |                         |
-| `pinColor`           |                           | `string`               |                         |
-| `lineColor`          |                           | `string`               |                         |
-| `isScrollToElement`  |                           | `boolean`              |                         |
-| `position`           |                           | `enum WIZARD_POSITION` | `WIZARD_POSITION.RIGHT` |
+| _Property_           | _Description_             | _type_         | _Default value_ |
+|----------------------|:--------------------------|----------------|:---------------:|
+| `rule`               | array rules for wizard    | `WizardStep[]` |                 |
+| `isShow`             | Sets view mode            | `boolean?`     |     `true`      |
+| `prevButtonTitle`    | title for previous button | `string?`      |     `Prev`      |
+| `nextButtonTitle`    | title for next button     | `string?`      |     `Next`      |
+| `closeButtonTitle`   | Text on Close button      | `string?`      |     `Close`     |
+| `closeButtonElement` |                           | `ReactNode?`   |   `<button>`    |
+| `pinColor`           |                           | `string?`      |    `1787fc`     |
+| `lineColor`          |                           | `string?`      |    `1787fc`     |
+| `isScrollToElement`  |                           | `boolean?`     |     `false`     |
 
 ### Example
 

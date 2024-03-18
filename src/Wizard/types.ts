@@ -12,13 +12,6 @@ export interface WizardStep {
   description?: string | React.ReactNode
 }
 
-export enum WIZARD_POSITION {
-  TOP = 'top',
-  LEFT = 'left',
-  RIGHT = 'right',
-  BOTTOM = 'bottom',
-}
-
 export interface Coordinates {
   top: number
   left: number
@@ -33,7 +26,6 @@ export interface WizardProps {
   closeButtonElement?: React.ReactNode
   lineColor?: string
   pinColor?: string
-  position?: WIZARD_POSITION
   isScrollToElement?: boolean
 }
 
