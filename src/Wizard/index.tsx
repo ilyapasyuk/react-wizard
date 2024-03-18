@@ -2,12 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 import './style.css'
-import { WizardProps, WizardStep } from '../../index'
-
-type Coordinates = {
-  top: number
-  left: number
-}
+import { Coordinates, WIZARD_POSITION, WizardProps, WizardStep } from './types'
 
 const Wizard = ({
   isShow = true,
@@ -18,20 +13,21 @@ const Wizard = ({
   closeButtonElement,
   pinColor = '#1787fc',
   lineColor = '#1787fc',
+  position = WIZARD_POSITION.RIGHT,
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
-  const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
+  const [coordinates, setCoordinates] = useState<Coordinates>({ top: 0, left: 0 })
 
   const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
   const currentStepContent = getStep(currentStepNumber, rule)
 
   useEffect(() => {
-    setPosition(getCoords(getStep(currentStepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(currentStepNumber, rule).elementId))
   }, [rule])
 
   const onStepButtonClick = (stepNumber: number): void => {
     setCurrentStepNumber(stepNumber)
-    setPosition(getCoords(getStep(stepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(stepNumber, rule).elementId))
   }
 
   if (!isShowState || !position) {
@@ -40,7 +36,7 @@ const Wizard = ({
 
   return (
     <div
-      style={{ left: position.left, top: position.top }}
+      style={{ left: coordinates.left, top: coordinates.top }}
       className="Wizard__Wrapper"
       data-wizard-onboarding
     >

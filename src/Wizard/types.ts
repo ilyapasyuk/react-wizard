@@ -12,15 +12,28 @@ export interface WizardStep {
   description?: string
 }
 
+export enum WIZARD_POSITION {
+  TOP = 'top',
+  LEFT = 'left',
+  RIGHT = 'right',
+  BOTTOM = 'bottom',
+}
+
+export interface Coordinates {
+  top: number
+  left: number
+}
+
 export interface WizardProps {
   isShow?: boolean
-  rule: Step[]
+  rule: WizardStep[]
   prevButtonTitle?: string
   nextButtonTitle?: string
   closeButtonTitle?: string
   closeButtonElement?: React.ReactNode
   lineColor?: string
   pinColor?: string
+  position?: WIZARD_POSITION
 }
 
 export default class Wizard extends React.Component<WizardProps> {}
