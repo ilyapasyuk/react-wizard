@@ -2,12 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 import './style.css'
-import { WizardProps, WizardStep } from '../../index'
-
-type Coordinates = {
-  top: number
-  left: number
-}
+import { Coordinates, WizardProps, WizardStep } from './types'
 
 const Wizard = ({
   isShow = true,
@@ -18,28 +13,30 @@ const Wizard = ({
   closeButtonElement,
   pinColor = '#1787fc',
   lineColor = '#1787fc',
+  isScrollToElement = false,
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
-  const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
+  const [coordinates, setCoordinates] = useState<Coordinates>({ top: 0, left: 0 })
+
   const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
   const currentStepContent = getStep(currentStepNumber, rule)
 
   useEffect(() => {
-    setPosition(getCoords(getStep(currentStepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(currentStepNumber, rule).elementId, isScrollToElement))
   }, [rule])
 
   const onStepButtonClick = (stepNumber: number): void => {
     setCurrentStepNumber(stepNumber)
-    setPosition(getCoords(getStep(stepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(stepNumber, rule).elementId, isScrollToElement))
   }
 
-  if (!isShowState || !position) {
+  if (!isShowState || !coordinates) {
     return null
   }
 
   return (
     <div
-      style={{ left: position.left, top: position.top }}
+      style={{ left: coordinates.left, top: coordinates.top }}
       className="Wizard__Wrapper"
       data-wizard-onboarding
     >
@@ -106,12 +103,19 @@ function getStep(stepNumber: number, rules: WizardStep[]): WizardStep {
   return rules[stepNumber]
 }
 
-function getCoords(elementId: string): Coordinates {
+function getCoords(elementId: string, isScrollToElement?: boolean): Coordinates {
   const element = document.getElementById(elementId)
   const coordinates = element?.getBoundingClientRect()
 
-  const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2
+  const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2 + window.scrollY
   const left = (coordinates?.left || 0) + (coordinates?.width || 0)
+
+  if (isScrollToElement) {
+    window.scrollTo({
+      top: top - window.innerHeight / 2,
+      behavior: 'smooth',
+    })
+  }
 
   return {
     top,

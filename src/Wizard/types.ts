@@ -9,18 +9,24 @@ import * as React from 'react'
 export interface WizardStep {
   elementId: string
   title: string
-  description?: string
+  description?: string | React.ReactNode
+}
+
+export interface Coordinates {
+  top: number
+  left: number
 }
 
 export interface WizardProps {
+  rule: WizardStep[]
   isShow?: boolean
-  rule: Step[]
   prevButtonTitle?: string
   nextButtonTitle?: string
   closeButtonTitle?: string
   closeButtonElement?: React.ReactNode
   lineColor?: string
   pinColor?: string
+  isScrollToElement?: boolean
 }
 
 export default class Wizard extends React.Component<WizardProps> {}

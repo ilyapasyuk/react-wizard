@@ -12,7 +12,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, './index.d.ts'),
+          src: path.resolve(__dirname, './src/Wizard/types.ts'),
           dest: './',
         },
       ],

@@ -1,7 +1,7 @@
 {
   "name": "react-onboarding",
-  "version": "1.4.1",
-  "types": "dist/index.d.ts",
+  "version": "1.5.0",
+  "types": "dist/types.ts",
   "description": "Simple Wizard component for React",
   "type": "module",
   "main": "dist/wizard.umd.min.js",
