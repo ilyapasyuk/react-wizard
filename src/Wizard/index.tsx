@@ -21,6 +21,7 @@ const Wizard = ({
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
   const [position, setPosition] = useState<Coordinates>({ top: 0, left: 0 })
+
   const [currentStepNumber, setCurrentStepNumber] = useState<number>(0)
   const currentStepContent = getStep(currentStepNumber, rule)
 
@@ -110,7 +111,7 @@ function getCoords(elementId: string): Coordinates {
   const element = document.getElementById(elementId)
   const coordinates = element?.getBoundingClientRect()
 
-  const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2
+  const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2 + window.scrollY
   const left = (coordinates?.left || 0) + (coordinates?.width || 0)
 
   return {
