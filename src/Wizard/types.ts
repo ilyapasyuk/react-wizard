@@ -9,7 +9,7 @@ import * as React from 'react'
 export interface WizardStep {
   elementId: string
   title: string
-  description?: string
+  description?: string | React.ReactNode
 }
 
 export enum WIZARD_POSITION {

@@ -10,7 +10,14 @@ const rule = [
   {
     elementId: 'elementId2',
     title: 'Title 2',
-    description: 'description 2',
+    description: (
+      <div>
+        <span style={{ marginRight: 5 }}>That is string description, but this is</span>
+        <a href="https://pasyuk.com" target="_blank">
+          link
+        </a>
+      </div>
+    ),
   },
   {
     elementId: 'elementId3',
