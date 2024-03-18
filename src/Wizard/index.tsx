@@ -14,6 +14,7 @@ const Wizard = ({
   pinColor = '#1787fc',
   lineColor = '#1787fc',
   position = WIZARD_POSITION.RIGHT,
+  isScrollToElement = false,
 }: WizardProps) => {
   const [isShowState, setShow] = useState<boolean>(isShow)
   const [coordinates, setCoordinates] = useState<Coordinates>({ top: 0, left: 0 })
@@ -22,12 +23,12 @@ const Wizard = ({
   const currentStepContent = getStep(currentStepNumber, rule)
 
   useEffect(() => {
-    setCoordinates(getCoords(getStep(currentStepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(currentStepNumber, rule).elementId, isScrollToElement))
   }, [rule])
 
   const onStepButtonClick = (stepNumber: number): void => {
     setCurrentStepNumber(stepNumber)
-    setCoordinates(getCoords(getStep(stepNumber, rule).elementId))
+    setCoordinates(getCoords(getStep(stepNumber, rule).elementId, isScrollToElement))
   }
 
   if (!isShowState || !coordinates) {
@@ -103,12 +104,19 @@ function getStep(stepNumber: number, rules: WizardStep[]): WizardStep {
   return rules[stepNumber]
 }
 
-function getCoords(elementId: string): Coordinates {
+function getCoords(elementId: string, isScrollToElement?: boolean): Coordinates {
   const element = document.getElementById(elementId)
   const coordinates = element?.getBoundingClientRect()
 
   const top = (coordinates?.top || 0) + (coordinates?.height || 0) / 2 + window.scrollY
   const left = (coordinates?.left || 0) + (coordinates?.width || 0)
+
+  if (isScrollToElement) {
+    window.scrollTo({
+      top: top - window.innerHeight / 2,
+      behavior: 'smooth',
+    })
+  }
 
   return {
     top,

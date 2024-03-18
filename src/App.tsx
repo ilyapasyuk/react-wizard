@@ -127,7 +127,7 @@ function App() {
           PageMaker including versions of Lorem Ipsum.
         </p>
       </main>
-      <Wizard rule={rule} pinColor="black" lineColor="black" />
+      <Wizard rule={rule} pinColor="black" lineColor="black" isScrollToElement />
     </div>
   )
 }

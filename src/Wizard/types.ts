@@ -25,8 +25,8 @@ export interface Coordinates {
 }
 
 export interface WizardProps {
-  isShow?: boolean
   rule: WizardStep[]
+  isShow?: boolean
   prevButtonTitle?: string
   nextButtonTitle?: string
   closeButtonTitle?: string
@@ -34,6 +34,7 @@ export interface WizardProps {
   lineColor?: string
   pinColor?: string
   position?: WIZARD_POSITION
+  isScrollToElement?: boolean
 }
 
 export default class Wizard extends React.Component<WizardProps> {}

@@ -27,22 +27,24 @@ First import this component where you want to use it
 
 `import Wizard from "react-onboarding"`
 
-Then just renders it
+Then just render it
 
 `<Wizard />`
 
 ### Props
 
-| _Property_           |       _Description_       | _Default value_ |
-|----------------------|:-------------------------:|:---------------:|
-| `rule`               |  array rules for wizard   |      none       |
-| `isShow`             |      Sets view mode       |      true       |
-| `prevButtonTitle`    | title for previous button |      Prev       |
-| `nextButtonTitle`    |   title for next button   |      Next       |
-| `closeButtonTitle`   |   Text on Close button    |      Close      |
-| `closeButtonElement` |                           |    ReactNode    |
-| `pinColor`           |                           |     string      |
-| `lineColor`          |                           |     string      |
+| _Property_           |       _Description_       | _type_                 |     _Default value_     |
+|----------------------|:-------------------------:|------------------------|:-----------------------:|
+| `rule`               |  array rules for wizard   |                        |                         |
+| `isShow`             |      Sets view mode       | `boolean`              |         `true`          |
+| `prevButtonTitle`    | title for previous button | `string`               |         `Prev`          |
+| `nextButtonTitle`    |   title for next button   | `string`               |         `Next`          |
+| `closeButtonTitle`   |   Text on Close button    | `string`               |         `Close`         |
+| `closeButtonElement` |                           | `ReactNode`            |                         |
+| `pinColor`           |                           | `string`               |                         |
+| `lineColor`          |                           | `string`               |                         |
+| `isScrollToElement`  |                           | `boolean`              |                         |
+| `position`           |                           | `enum WIZARD_POSITION` | `WIZARD_POSITION.RIGHT` |
 
 ### Example
 
